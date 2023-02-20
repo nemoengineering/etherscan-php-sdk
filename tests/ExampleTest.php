@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Nemo\EtherscanPhpSdk\Tests;
 
 use PHPUnit\Framework\TestCase;
 
