@@ -3,6 +3,7 @@
 namespace Nemo\Etherscan;
 
 use GuzzleHttp\Client;
+use Nemo\Etherscan\Api\Accounts;
 use Nemo\Etherscan\Support\Chain;
 
 class Etherscan
@@ -22,7 +23,7 @@ class Etherscan
         return $this->httpClient;
     }
 
-    public function user(): Accounts
+    public function accounts(): Accounts
     {
         return new Accounts($this);
     }

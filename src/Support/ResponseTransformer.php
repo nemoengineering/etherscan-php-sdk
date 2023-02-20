@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nemo\Etherscan;
+namespace Nemo\Etherscan\Support;
 
 use Nemo\Etherscan\Exceptions\TransformResponseException;
 use Psr\Http\Message\ResponseInterface;

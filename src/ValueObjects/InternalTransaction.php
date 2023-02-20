@@ -30,7 +30,7 @@ class InternalTransaction
         // public ?string         $methodId,
         // public ?string         $functionName,
         public string $type,
-        public int $traceId,
+        public string $traceId,
         public string $errorCode,
     ) {
         //
@@ -63,8 +63,8 @@ class InternalTransaction
             // methodId: $response["methodId"] ?? null,
             // functionName: $response["functionName"] ?? null,
             type: $response['type'],
-            traceId: (int) $response['traceId'],
-            errorCode: $response['errorCode'],
+            traceId: $response['traceId'],
+            errorCode: $response['errCode'],
         );
     }
 }

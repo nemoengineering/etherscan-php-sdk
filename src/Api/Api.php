@@ -7,7 +7,7 @@ namespace Nemo\Etherscan\Api;
 use GuzzleHttp\Exception\GuzzleException;
 use Nemo\Etherscan\Etherscan;
 use Nemo\Etherscan\Exceptions\TransformResponseException;
-use Nemo\Etherscan\ResponseTransformer;
+use Nemo\Etherscan\Support\ResponseTransformer;
 
 class Api
 {
