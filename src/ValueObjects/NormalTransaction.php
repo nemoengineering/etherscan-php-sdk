@@ -5,6 +5,7 @@ namespace Nemo\Etherscan\ValueObjects;
 use Brick\Math\BigInteger;
 use Brick\Math\Exception\MathException;
 use Carbon\CarbonImmutable;
+use Nemo\Etherscan\Support\Numbers;
 
 class NormalTransaction
 {
@@ -60,5 +61,10 @@ class NormalTransaction
             methodId: $response['methodId'] ?? null,
             functionName: $response['functionName'] ?? null,
         );
+    }
+
+    public function resolveValue(): float
+    {
+        return $this->value->isGreaterThan(BigInteger::zero()) ? Numbers::scaleToFloat($this->value, 18) : 0;
     }
 }

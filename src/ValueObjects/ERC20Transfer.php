@@ -5,6 +5,7 @@ namespace Nemo\Etherscan\ValueObjects;
 use Brick\Math\BigInteger;
 use Brick\Math\Exception\MathException;
 use Carbon\CarbonImmutable;
+use Nemo\Etherscan\Support\Numbers;
 
 class ERC20Transfer
 {
@@ -66,5 +67,10 @@ class ERC20Transfer
             tokenSymbol: $response['tokenSymbol'],
             tokenDecimal: (int) $response['tokenDecimal'],
         );
+    }
+
+    public function resolveValue(): float
+    {
+        return Numbers::scaleToFloat($this->value, $this->tokenDecimal);
     }
 }

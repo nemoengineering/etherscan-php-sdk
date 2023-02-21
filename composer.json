@@ -36,7 +36,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-            "test-coverage": "vendor/bin/phpunit --coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage",
         "format": "vendor/bin/pint"
     },
     "config": {

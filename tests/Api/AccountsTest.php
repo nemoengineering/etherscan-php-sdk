@@ -90,6 +90,8 @@ class AccountsTest extends TestCase
         $this->assertEquals(BigInteger::of('1000000'), $first->value);
         $this->assertEquals('USD Coin', $first->tokenName);
         $this->assertEquals(6, $first->tokenDecimal);
+
+        $this->assertEquals(1, $first->resolveValue());
     }
 
     public function testGetERC721TransfersByAddress()
