@@ -202,8 +202,8 @@ class Accounts extends Api
      * @throws ApiException|GuzzleException|MathException|TransformResponseException
      */
     public function getERC20TransfersByAddress(
-        ?string $address,
-        ?string $contractAddress,
+        ?string $address = null,
+        ?string $contractAddress = null,
         int $startBlock = 0,
         int $endBlock = 99999999,
         int $page = 1,
@@ -235,8 +235,8 @@ class Accounts extends Api
      * @throws ApiException|GuzzleException|MathException|TransformResponseException
      */
     public function getERC721TransfersByAddress(
-        ?string $address,
-        ?string $contractAddress,
+        ?string $address = null,
+        ?string $contractAddress = null,
         int $startBlock = 0,
         int $endBlock = 99999999,
         int $page = 1,
@@ -268,8 +268,8 @@ class Accounts extends Api
      * @throws ApiException|GuzzleException|MathException|TransformResponseException
      */
     public function getERC1155TransfersByAddress(
-        ?string $address,
-        ?string $contractAddress,
+        ?string $address = null,
+        ?string $contractAddress = null,
         int $startBlock = 0,
         int $endBlock = 99999999,
         int $page = 1,

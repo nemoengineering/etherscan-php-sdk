@@ -30,7 +30,7 @@ class ERC1155Transfer
         // public ?string         $methodId,
         // public ?string         $functionName,
         public string $tokenId,
-        public string $tokenValue, // FIXME type
+        public int $tokenValue, // FIXME type
         public string $tokenName,
         public string $tokenSymbol,
     ) {
