@@ -103,7 +103,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => NormalTransaction::fromResponse($i), $res['result']);
@@ -139,7 +143,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => InternalTransaction::fromResponse($i), $res['result']);
@@ -159,7 +167,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => InternalTransaction::fromResponse($i), $res['result']);
@@ -192,7 +204,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => InternalTransaction::fromResponse($i), $res['result']);
@@ -225,7 +241,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => ERC20Transfer::fromResponse($i), $res['result']);
@@ -258,7 +278,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => ERC721Transfer::fromResponse($i), $res['result']);
@@ -291,7 +315,11 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            if ($res['message'] == 'No transactions found') {
+                return [];
+            } else {
+                throw new ApiException($res['message']);
+            }
         }
 
         return array_map(fn ($i) => ERC1155Transfer::fromResponse($i), $res['result']);
