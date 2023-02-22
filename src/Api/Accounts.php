@@ -37,7 +37,7 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
         }
 
         return BigDecimal::of($res['message']);
@@ -67,7 +67,7 @@ class Accounts extends Api
         $res = $this->get(self::MODULE, $params);
 
         if ($res['status'] != '1') {
-            throw new ApiException($res['message']);
+            throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
         }
 
         return array_map(fn ($i) => EtherBalance::fromResponse($i), $res['result']);
@@ -106,7 +106,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
@@ -146,7 +146,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
@@ -170,7 +170,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
@@ -207,7 +207,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
@@ -244,7 +244,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
@@ -281,7 +281,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
@@ -318,7 +318,7 @@ class Accounts extends Api
             if ($res['message'] == 'No transactions found') {
                 return [];
             } else {
-                throw new ApiException($res['message']);
+                throw new ApiException("{$res['message']}\nURI: {$this->client->getHttpClient()->getConfig('base_uri')}\nAction: {$params['action']}");
             }
         }
 
