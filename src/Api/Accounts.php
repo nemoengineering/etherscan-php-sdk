@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nemo\Etherscan\Api;
 
-use Brick\Math\BigInteger;
+use Brick\Math\BigDecimal;
 use Brick\Math\Exception\MathException;
 use GuzzleHttp\Exception\GuzzleException;
 use Nemo\Etherscan\Exceptions\ApiException;
@@ -29,7 +29,7 @@ class Accounts extends Api
      *
      * @throws ApiException|GuzzleException|MathException|TransformResponseException
      */
-    public function getEtherBalanceForAddress(string $address, string $tag = 'latest'): BigInteger
+    public function getEtherBalanceForAddress(string $address, string $tag = 'latest'): BigDecimal
     {
         $params['action'] = 'balance';
         $params['address'] = $address;
@@ -40,7 +40,7 @@ class Accounts extends Api
             throw new ApiException($res['message']);
         }
 
-        return BigInteger::of($res['message']);
+        return BigDecimal::of($res['message']);
     }
 
     /**

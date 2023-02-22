@@ -2,14 +2,14 @@
 
 namespace Nemo\Etherscan\ValueObjects;
 
-use Brick\Math\BigInteger;
+use Brick\Math\BigDecimal;
 use Brick\Math\Exception\MathException;
 
 class EtherBalance
 {
     public function __construct(
         public string $account,
-        public BigInteger $balance,
+        public BigDecimal $balance,
     ) {
         //
     }
@@ -21,7 +21,7 @@ class EtherBalance
     {
         return new EtherBalance(
             account: $response['account'],
-            balance: BigInteger::of($response['balance']),
+            balance: BigDecimal::of($response['balance']),
         );
     }
 }

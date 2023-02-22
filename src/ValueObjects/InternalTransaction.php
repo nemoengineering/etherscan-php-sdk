@@ -2,14 +2,14 @@
 
 namespace Nemo\Etherscan\ValueObjects;
 
-use Brick\Math\BigInteger;
+use Brick\Math\BigDecimal;
 use Brick\Math\Exception\MathException;
 use Carbon\CarbonImmutable;
 
 class InternalTransaction
 {
     public function __construct(
-        public BigInteger $blockNumber,
+        public BigDecimal $blockNumber,
         public CarbonImmutable $timeStamp,
         public string $hash,
         // public int             $nonce,
@@ -17,16 +17,16 @@ class InternalTransaction
         // public int             $transactionIndex,
         public string $from,
         public string $to,
-        public BigInteger $value,
-        public BigInteger $gas,
-        // public BigInteger      $gasPrice,
+        public BigDecimal $value,
+        public BigDecimal $gas,
+        // public BigDecimal      $gasPrice,
         public bool $isError,
         // public string          $receiptStatus,
         public string $input,
         public string $contractAddress,
-        // public BigInteger      $cumulativeGasUsed,
-        // public BigInteger      $gasUsed,
-        // public BigInteger      $confirmations,
+        // public BigDecimal      $cumulativeGasUsed,
+        // public BigDecimal      $gasUsed,
+        // public BigDecimal      $confirmations,
         // public ?string         $methodId,
         // public ?string         $functionName,
         public string $type,
@@ -42,7 +42,7 @@ class InternalTransaction
     public static function fromResponse(array $response): InternalTransaction
     {
         return new InternalTransaction(
-            blockNumber: BigInteger::of($response['blockNumber']),
+            blockNumber: BigDecimal::of($response['blockNumber']),
             timeStamp: CarbonImmutable::createFromTimestamp($response['timeStamp']),
             hash: $response['hash'],
             // nonce: (int)$response["nonce"],
@@ -50,16 +50,16 @@ class InternalTransaction
             // transactionIndex: (int)$response["transactionIndex"],
             from: $response['from'],
             to: $response['to'],
-            value: BigInteger::of($response['value']),
-            gas: BigInteger::of($response['gas']),
-            // gasPrice: BigInteger::of($response["gasPrice"]),
+            value: BigDecimal::of($response['value']),
+            gas: BigDecimal::of($response['gas']),
+            // gasPrice: BigDecimal::of($response["gasPrice"]),
             isError: (bool) $response['isError'],
             // receiptStatus: $response["txreceipt_status"],
             input: $response['input'],
             contractAddress: $response['contractAddress'],
-            // cumulativeGasUsed: BigInteger::of($response["cumulativeGasUsed"]),
-            // gasUsed: BigInteger::of($response["gasUsed"]),
-            // confirmations: BigInteger::of($response["confirmations"]),
+            // cumulativeGasUsed: BigDecimal::of($response["cumulativeGasUsed"]),
+            // gasUsed: BigDecimal::of($response["gasUsed"]),
+            // confirmations: BigDecimal::of($response["confirmations"]),
             // methodId: $response["methodId"] ?? null,
             // functionName: $response["functionName"] ?? null,
             type: $response['type'],

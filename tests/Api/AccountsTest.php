@@ -2,7 +2,7 @@
 
 namespace Nemo\Etherscan\Tests\Api;
 
-use Brick\Math\BigInteger;
+use Brick\Math\BigDecimal;
 use Carbon\CarbonImmutable;
 use Nemo\Etherscan\Etherscan;
 use Nemo\Etherscan\Support\Chain;
@@ -34,7 +34,7 @@ class AccountsTest extends TestCase
         /** @var NormalTransaction $first */
         $first = $result[0];
 
-        $this->assertEquals(BigInteger::of(15521222), $first->blockNumber);
+        $this->assertEquals(BigDecimal::of(15521222), $first->blockNumber);
         $this->assertEquals(CarbonImmutable::parse('2022-09-12 13:58:12.000000'), $first->timeStamp);
         $this->assertEquals(846, $first->nonce);
         $this->assertEquals('1', $first->receiptStatus);
@@ -60,9 +60,9 @@ class AccountsTest extends TestCase
         /** @var InternalTransaction $first */
         $first = $result[0];
 
-        $this->assertEquals(BigInteger::of(15509346), $first->blockNumber);
+        $this->assertEquals(BigDecimal::of(15509346), $first->blockNumber);
         $this->assertEquals(CarbonImmutable::parse('2022-09-10 14:43:11.000000'), $first->timeStamp);
-        $this->assertEquals(BigInteger::of('2000000000000000'), $first->value);
+        $this->assertEquals(BigDecimal::of('2000000000000000'), $first->value);
         $this->assertEquals(false, $first->isError);
         $this->assertEquals('0_1', $first->traceId);
     }
@@ -86,8 +86,8 @@ class AccountsTest extends TestCase
         /** @var ERC20Transfer $first */
         $first = $result[0];
 
-        $this->assertEquals(BigInteger::of(15501106), $first->blockNumber);
-        $this->assertEquals(BigInteger::of('1000000'), $first->value);
+        $this->assertEquals(BigDecimal::of(15501106), $first->blockNumber);
+        $this->assertEquals(BigDecimal::of('1000000'), $first->value);
         $this->assertEquals('USD Coin', $first->tokenName);
         $this->assertEquals(6, $first->tokenDecimal);
 
@@ -113,7 +113,7 @@ class AccountsTest extends TestCase
         /** @var ERC721Transfer $first */
         $first = $result[0];
 
-        $this->assertEquals(BigInteger::of(15521222), $first->blockNumber);
+        $this->assertEquals(BigDecimal::of(15521222), $first->blockNumber);
         $this->assertEquals('1', $first->tokenId);
         $this->assertEquals('gm pepe', $first->tokenName);
         $this->assertEquals(0, $first->tokenDecimal);
@@ -138,7 +138,7 @@ class AccountsTest extends TestCase
         /** @var ERC1155Transfer $first */
         $first = $result[1];
 
-        $this->assertEquals(BigInteger::of(15544413), $first->blockNumber);
+        $this->assertEquals(BigDecimal::of(15544413), $first->blockNumber);
         $this->assertEquals('1', $first->tokenId);
         $this->assertEquals('Anime AMATO Collection', $first->tokenName);
         $this->assertEquals(1, $first->tokenValue);
