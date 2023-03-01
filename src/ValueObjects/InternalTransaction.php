@@ -5,6 +5,7 @@ namespace Nemo\Etherscan\ValueObjects;
 use Brick\Math\BigDecimal;
 use Brick\Math\Exception\MathException;
 use Carbon\CarbonImmutable;
+use Nemo\Etherscan\Support\Numbers;
 
 class InternalTransaction
 {
@@ -66,5 +67,10 @@ class InternalTransaction
             traceId: $response['traceId'],
             errorCode: $response['errCode'],
         );
+    }
+
+    public function resolveValue(): float
+    {
+        return $this->value->isGreaterThan(BigDecimal::zero()) ? Numbers::scaleToFloat($this->value, 18) : 0;
     }
 }
