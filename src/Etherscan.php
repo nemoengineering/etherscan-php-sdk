@@ -4,6 +4,8 @@ namespace Nemo\Etherscan;
 
 use GuzzleHttp\Client;
 use Nemo\Etherscan\Api\Accounts;
+use Nemo\Etherscan\Api\Blocks;
+use Nemo\Etherscan\Api\Proxy;
 use Nemo\Etherscan\Support\Chain;
 
 class Etherscan
@@ -26,6 +28,16 @@ class Etherscan
     public function accounts(): Accounts
     {
         return new Accounts($this);
+    }
+
+    public function blocks(): Blocks
+    {
+        return new Blocks($this);
+    }
+
+    public function proxy(): Proxy
+    {
+        return new Proxy($this);
     }
 
     private static function getBaseUrlForChain(Chain $chain): string
